@@ -14,9 +14,30 @@ function inputValueChange(inputId, price, isTrue){
 
     const totalPrice = document.getElementById(inputId + '-total');
     totalPrice.innerText = caseNumber * price;
+    calculateTotal();
 };
 
-// phone incrice and decrice 
+// get input value
+function getInputValue(product){
+ const productInput = document.getElementById(product + '-number');
+ const productNumber = parseInt(productInput.value);
+ return productNumber;
+
+
+}
+
+// calculate total value 
+function calculateTotal(){
+    const phoneTotal = getInputValue('phone') * 1219;
+    const caseTotal = getInputValue('case') * 59;
+    const subtotal = phoneTotal + caseTotal;
+    const tax = subtotal / 10;
+    const totalPrice = subtotal + tax;
+    document.getElementById('sub-total').innerText = subtotal;
+    document.getElementById('tax').innerText = tax;
+    document.getElementById('total-price').innerText = totalPrice;
+   
+}
 
 
 
